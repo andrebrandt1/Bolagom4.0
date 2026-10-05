@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="BoLagom.Api/BoLagom.Api.csproj" />
+  <Project Path="BoLagom.ConsolApp/BoLagom.ConsolApp.csproj" />
+  <Project Path="Bolagom4/Bolagom4.csproj" />
+</Solution>

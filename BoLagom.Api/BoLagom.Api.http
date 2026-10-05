@@ -1,0 +1,56 @@
+@BoLagom.Api_HostAddress = http://localhost:9000
+@propertyId = 1
+
+### Hämta alla fastigheter
+GET {{BoLagom.Api_HostAddress}}/api/properties
+Accept: application/json
+
+### Skapa fastighet
+POST {{BoLagom.Api_HostAddress}}/api/properties
+Content-Type: application/json
+
+{
+  "name": "Ogrimmar",
+  "address": "Valley of Heroes 1",
+  "floors": "5",
+  "portCode": "1234"
+}
+
+### Uppdatera fastighet
+PUT {{BoLagom.Api_HostAddress}}/api/properties/{{propertyId}}
+Content-Type: application/json
+
+{
+  "name": "Solgläntan",
+  "address": "Storgatan 2",
+  "floors": "4",
+  "portCode": "4321"
+}
+
+### Hämta lägenheter i fastigheten
+GET {{BoLagom.Api_HostAddress}}/api/properties/{{propertyId}}/apartments
+Accept: application/json
+
+### Skapa lägenhet i fastigheten
+POST {{BoLagom.Api_HostAddress}}/api/properties/{{propertyId}}/apartments
+Content-Type: application/json
+
+{
+  "apartmentNumber": "00101",
+  "livingArea": 65.5,
+  "monthlyRent": 8500
+}
+
+### Testa validering av fastighet med ogiltiga uppgifter
+POST {{BoLagom.Api_HostAddress}}/api/properties
+Content-Type: application/json
+
+{
+  "name": "OgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmarOgrimmar",
+  "address": "Valley of Heroes 1",
+  "floors": "-1",
+  "portCode": "123456789101122"
+}
+
+### Radera fastighet
+DELETE {{BoLagom.Api_HostAddress}}/api/properties/{{propertyId}}
